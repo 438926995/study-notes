@@ -28,6 +28,12 @@ Caused by: java.lang.NoSuchMethodError: javax.persistence.Table.indexes()[Ljavax
 ######解决方法:
 对于特殊类型手动处理
 
+3. redis整合spring问题
+
+        Caused by: java.lang.NoSuchMethodError: org.springframework.core.serializer.support.DeserializingConverter.<init>(Ljava/lang/ClassLoader;)V
+
+######原因:
+    spring版本和spring-redis版本不兼容,我使用的spring-redis版本高了点,选择将spring-redis降低一个小版本 问题解决
 ##总结:
 1. hibernate中hql不支持原生的insert语句, 要使用executeUpdate()只能是
 

@@ -1,6 +1,9 @@
 package com.wen.junit;
 
+import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 
 import javax.inject.Inject;
 
@@ -11,15 +14,12 @@ import javax.inject.Inject;
 public class RedisTest extends BaseTest {
 
   @Inject
-  //  private RedisTemplate redisTemplate;
+  private RedisTemplate redisTemplate;
 
   @Test
   public void testRedis() {
-    //    ValueOperations<String, String> vop = redisTemplate.opsForValue();
-    //    System.out.println(vop.get("wen1"));
-    //    vop.set("wen1", "好好学习");
-    //    Assert.assertEquals("123", vop.get("wen"));
-    //    System.out.println(vop.get("wen"));
-
+    ValueOperations<String, String> vop = redisTemplate.opsForValue();
+    System.out.println(vop.get("wen1"));
+    vop.set("wen1", "good");
   }
 }
