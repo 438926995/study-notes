@@ -47,12 +47,12 @@
     </mvc:annotation-driven>
     <!-- 设置spring mvc校验，以下 validator ConversionService 在使用 mvc:annotation-driven
 		会 自动注册 -->
-    <!--<bean id="validator"-->
-          <!--class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">-->
-        <!--<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />-->
-        <!--&lt;!&ndash; 如果不加默认到 使用classpath下的 ValidationMessages.properties &ndash;&gt;-->
-        <!--<property name="validationMessageSource" ref="messageSource" />-->
-    <!--</bean>-->
+    <bean id="validator"
+          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+        <!-- 如果不加默认到 使用classpath下的 ValidationMessages.properties -->
+        <property name="validationMessageSource" ref="messageSource" />
+    </bean>
 
     <!-- 配置内容协商功能 -->
     <bean id="contentNegotiationManager"

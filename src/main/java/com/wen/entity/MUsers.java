@@ -17,7 +17,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name = "m_users")
 public class MUsers {
 
-
   private Integer userId;
 
   private String userName;

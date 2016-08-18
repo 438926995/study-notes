@@ -19,8 +19,8 @@ public class UserDaoTest extends BaseTest{
 
   private final static Logger logger = LoggerFactory.getLogger(UserDaoTest.class);
 
-  @Inject
-  private IUserDao userDaoImpl;
+//  @Inject
+//  private IUserDao userDaoImpl;
 
   @Inject
   private UserDao userDao;

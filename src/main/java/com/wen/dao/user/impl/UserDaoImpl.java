@@ -22,7 +22,7 @@ public class UserDaoImpl implements IUserDao {
   private SessionFactory sessionFactory;
 
   @Override
-//  @Transactional
+  @Transactional
   @SuppressWarnings("unchecked")
   public List<MUsers> getAllUser() {
     String hql = "select mu.userId, mu.userName from MUsers mu";

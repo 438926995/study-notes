@@ -26,7 +26,9 @@ public class UserDao {
     String hql = "from User";
     Session session = sessionFactory.getCurrentSession();
     Query query = session.createQuery(hql);
+    //    NativeQuery nativeQuery = session.createNativeQuery(hql);
     return query.list();
+//    return nativeQuery.list();
   }
 
 }

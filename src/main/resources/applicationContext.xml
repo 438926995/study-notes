@@ -17,7 +17,7 @@
 
     <task:annotation-driven/>
     <!-- 仅扫描service、annotation、dao,@Service、@Repository -->
-    <context:component-scan base-package="com.wen.service,com.wen.dao,com.wen.entity"/>
+    <context:component-scan base-package="com.wen.service,com.wen.dao"/>
 
 
     <bean id="propertyConfigurer"
