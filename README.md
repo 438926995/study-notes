@@ -1,9 +1,10 @@
 ##已完成:
 1. redis
 2. slf4j日志
+3. 简单hibernate搭建
 
 ##任务:
-1. 使用hibernate
+1. 使用hibernate(over)
 
 ##问题:
 1. hibernate连接数据库 报<br>
