@@ -1,14 +1,10 @@
 package com.wen.dao.user.impl;
 
+import com.wen.dao.BaseDao;
 import com.wen.dao.user.IUserDao;
 import com.wen.entity.MUsers;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
 import java.util.List;
 
 /**
@@ -16,18 +12,42 @@ import java.util.List;
  * @since 16/8/17
  */
 @Repository
-public class UserDaoImpl implements IUserDao {
-
-  @Inject
-  private SessionFactory sessionFactory;
+public class UserDaoImpl extends BaseDao implements IUserDao {
 
   @Override
-  @Transactional
-  @SuppressWarnings("unchecked")
   public List<MUsers> getAllUser() {
     String hql = "select mu.userId, mu.userName from MUsers mu";
-    Session session = sessionFactory.getCurrentSession();
-    Query query = session.createQuery(hql);
-    return query.list();
+    return queryList(hql);
   }
+
+  @Override
+  public int selectUserCount() {
+    String hql = "select count(*) from MUsers";
+    return queryCount(hql);
+  }
+
+  @Override
+  public MUsers selectUserByUserId(Long userId) {
+    //TODO hql 不能出现select
+    String hql = "from MUsers where userId = ?";
+    return querBean(hql, userId);
+  }
+
+  @Override
+  public void insertMUsers(MUsers mu) {
+    save(mu);
+  }
+
+  @Override
+  public int updateMUsers(MUsers mu) {
+    String hql = "update MUsers set userName = ? where userId = ?";
+    return update(hql, "wen-update", 1);
+  }
+
+  @Override
+  public int delMUsersByUserId(Long userId) {
+    String hql = "delete MUsers where userId = ?";
+    return update(hql, userId);
+  }
+
 }
