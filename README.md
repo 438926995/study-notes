@@ -5,6 +5,7 @@
 
 ##任务:
 1. 使用hibernate(over)
+2. 加入spring-security
 
 ##问题:
 1. hibernate连接数据库 报<br>

@@ -23,7 +23,8 @@ public class UserDaoTest extends BaseTest{
 
   @Test
   public void testFindUser(){
-
+    MUsers mUsers = userDao.selectUserByUserId(1l);
+    logger.info(mUsers.getUserName());
   }
 
 

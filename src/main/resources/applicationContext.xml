@@ -86,9 +86,6 @@
     <!--<constructor-arg index="0" ref="sqlSessionFactory"/>-->
     <!--</bean>-->
 
-    <!--<bean id="passwordEncoder"-->
-    <!--class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />-->
-
     <!-- redis 配置 -->
     <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="maxTotal" value="10"></property>

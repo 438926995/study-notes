@@ -34,6 +34,12 @@ public class UserDaoImpl extends BaseDao implements IUserDao {
   }
 
   @Override
+  public MUsers selectUserByUserName(String userName) {
+    String hql = "from MUsers where userName = ?";
+    return querBean(hql, userName);
+  }
+
+  @Override
   public void insertMUsers(MUsers mu) {
     save(mu);
   }
@@ -48,6 +54,16 @@ public class UserDaoImpl extends BaseDao implements IUserDao {
   public int delMUsersByUserId(Long userId) {
     String hql = "delete MUsers where userId = ?";
     return update(hql, userId);
+  }
+
+  @Override
+  public String selectPwdByUserName(String userName) {
+    String hql = "select userPwd from MUsers where userName = ?";
+    List<MUsers> muList = queryList(hql, userName);
+    if(!muList.isEmpty()){
+      return muList.get(0).getUserPwd();
+    }
+    return null;
   }
 
 }

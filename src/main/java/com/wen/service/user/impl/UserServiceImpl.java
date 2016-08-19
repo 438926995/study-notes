@@ -22,4 +22,9 @@ public class UserServiceImpl implements IUserService {
   public List<MUsers> getAllUserInfo() {
     return userDaoImpl.getAllUser();
   }
+
+  @Override
+  public MUsers getMusersByUserName(String userName) {
+    return userDaoImpl.selectUserByUserName(userName);
+  }
 }

@@ -28,6 +28,14 @@ public interface IUserDao {
   MUsers selectUserByUserId(Long userId);
 
   /**
+   * 根据用户名获取用户信息
+   *
+   * @param userName
+   * @return
+   */
+  MUsers selectUserByUserName(String userName);
+
+  /**
    * 新增用户
    *
    * @param mu
@@ -50,5 +58,13 @@ public interface IUserDao {
    * @return
    */
   int delMUsersByUserId(Long userId);
+
+  /**
+   * 根据用户名查询密码
+   *
+   * @param userName
+   * @return
+   */
+  String selectPwdByUserName(String userName);
 
 }
