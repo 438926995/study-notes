@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.omg.PortableInterceptor.USER_EXCEPTION;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -21,10 +22,18 @@ public class UserDaoTest extends BaseTest{
   @Inject
   private IUserDao userDao;
 
+  @Inject
+  private Md5PasswordEncoder passwordEncoder;
+
   @Test
   public void testFindUser(){
-    MUsers mUsers = userDao.selectUserByUserId(1l);
-    logger.info(mUsers.getUserName());
+//    MUsers mUsers = userDao.selectUserByUserId(1l);
+//    logger.info(mUsers.getUserName());
+    String s = passwordEncoder.encodePassword("admin", "admin");
+    logger.info("========{}", s);
+//    userDao.selectPwdByUserName("admin");
+    MUsers admin = userDao.selectUserByUserName("admin");
+    logger.info(admin.getUserPwd());
   }
 
 

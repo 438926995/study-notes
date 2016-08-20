@@ -117,6 +117,4 @@
         <csrf token-repository-ref="csrfTokenRepository" disabled="true"/>
     </http>
 
-    <debug/>
-
 </beans:beans>

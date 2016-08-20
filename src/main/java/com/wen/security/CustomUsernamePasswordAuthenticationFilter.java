@@ -41,7 +41,7 @@ public class CustomUsernamePasswordAuthenticationFilter
   @Override
   public Authentication attemptAuthentication(HttpServletRequest request,
       HttpServletResponse response) throws AuthenticationException {
-    if (!request.getMethod().equals(RequestMethod.POST)) {
+    if (!request.getMethod().equals("POST")) {
       throw new AuthenticationServiceException("非POST提交,拒绝登录请求");
     }
     return loginHandle(request);

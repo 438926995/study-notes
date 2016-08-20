@@ -58,10 +58,9 @@ public class UserDaoImpl extends BaseDao implements IUserDao {
 
   @Override
   public String selectPwdByUserName(String userName) {
-    String hql = "select userPwd from MUsers where userName = ?";
-    List<MUsers> muList = queryList(hql, userName);
-    if(!muList.isEmpty()){
-      return muList.get(0).getUserPwd();
+    MUsers mu = selectUserByUserName(userName);
+    if(mu != null){
+      return mu.getUserPwd();
     }
     return null;
   }

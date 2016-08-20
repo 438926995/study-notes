@@ -14,12 +14,13 @@
     <title>登录</title>
 </head>
 <body>
-    <form action="${basePath}/login" method="post">
+    <form action="<%=basePath%>/login" method="post">
         <label>username:</label>
-        <input id="username" name="username">
+        <input id="username" name="username" value="">
         <label>password:</label>
-        <input id="password" name="password">
-        <button type="submit">登录</button>
+        <input id="password" name="password" value="">
+        <input type="submit" value="登录">
     </form>
 </body>
+
 </html>
