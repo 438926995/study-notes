@@ -15,10 +15,11 @@
 </head>
 <body>
     <form action="<%=basePath%>/login" method="post">
+        <div style="color: red;">${loginError}</div>
         <label>username:</label>
-        <input id="username" name="username" value="">
+        <input type="text" id="username" name="username" value="">
         <label>password:</label>
-        <input id="password" name="password" value="">
+        <input type="password" id="password" name="password" value="">
         <input type="submit" value="登录">
     </form>
 </body>
