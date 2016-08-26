@@ -9,7 +9,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @since 16/7/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:applicationContext.xml",
-    "classpath:applicationContext-security.xml"})
+@ContextConfiguration(
+    locations = {"classpath:applicationContext.xml", "classpath:applicationContext-security.xml"})
 public abstract class BaseTest {
+
 }

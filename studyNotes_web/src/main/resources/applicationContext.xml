@@ -26,9 +26,13 @@
             <list>
                 <value>classpath:jdbc.properties</value>
                 <value>classpath:redis.properties</value>
+                <value>classpath:rabbitmq.properties</value>
             </list>
         </property>
     </bean>
+
+    <import resource="rabbitmq-consumer.xml"/>
+    <import resource="rabbitmq-producer.xml"/>
 
     <!-- 定义Hibernate Session工厂 -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">

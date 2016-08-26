@@ -28,6 +28,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Repository Switchboard</name>
+            <layout>default</layout>
+            <url>http://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencyManagement>
         <dependencies>
             <!-- spring begin -->
@@ -91,6 +103,16 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-oxm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-messaging</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
                 <version>${spring.version}</version>
             </dependency>
             <!-- spring end -->
@@ -249,12 +271,17 @@
                 <artifactId>jackson-annotations</artifactId>
                 <version>2.6.2</version>
             </dependency>
-
             <!-- 必须放在hibernate之后 -->
             <dependency>
                 <groupId>javax.persistence</groupId>
                 <artifactId>persistence-api</artifactId>
                 <version>1.0.2</version>
+            </dependency>
+            <!-- spring rabbitmq -->
+            <dependency>
+                <groupId>org.springframework.amqp</groupId>
+                <artifactId>spring-rabbit</artifactId>
+                <version>1.6.1.RELEASE</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

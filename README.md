@@ -3,10 +3,12 @@
 2. slf4j日志
 3. 简单hibernate搭建
 4. spring-security 登录验证
+5. 加入 spring rabbitmq
 
 ##任务:
 1. 使用hibernate(over)
 2. 加入spring-security
+
 
 ##问题:
 1. hibernate连接数据库 报<br>
