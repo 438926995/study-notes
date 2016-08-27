@@ -121,4 +121,9 @@ public class AccountController {
     }
   }
 
+  @RequestMapping(value = "/layout")
+  public String toLayout(){
+    return "account/layout";
+  }
+
 }

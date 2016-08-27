@@ -26,13 +26,14 @@ public class UserDaoTest extends BaseTest{
   private Md5PasswordEncoder passwordEncoder;
 
   @Test
-  public void testFindUser(){
+  public void testFindUser() throws InterruptedException {
 //    MUsers mUsers = userDao.selectUserByUserId(1l);
 //    logger.info(mUsers.getUserName());
     String s = passwordEncoder.encodePassword("admin", "admin");
     logger.info("========{}", s);
 //    userDao.selectPwdByUserName("admin");
     MUsers admin = userDao.selectUserByUserName("admin");
+    Thread.sleep(10000);
     logger.info(admin.getUserPwd());
   }
 

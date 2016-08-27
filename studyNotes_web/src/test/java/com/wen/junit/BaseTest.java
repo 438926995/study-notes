@@ -11,7 +11,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
     locations = {"classpath:applicationContext.xml", "classpath:applicationContext-security.xml",
-    "classpath:rabbitmq-consumer.xml", "classpath:rabbitmq-producer.xml"})
+        "classpath:rabbitmq-consumer.xml", "classpath:rabbitmq-producer.xml",
+        "classpath:applicationContext-quartz.xml"})
 public abstract class BaseTest {
 
 }

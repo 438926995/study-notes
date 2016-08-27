@@ -4,6 +4,7 @@
 3. 简单hibernate搭建
 4. spring-security 登录验证
 5. 加入 spring rabbitmq
+6. 加入 spring quartz
 
 ##任务:
 1. 使用hibernate(over)
