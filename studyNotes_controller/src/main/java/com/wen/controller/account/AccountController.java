@@ -1,5 +1,6 @@
 package com.wen.controller.account;
 
+import com.octo.captcha.service.image.ImageCaptchaService;
 import com.wen.utils.CommonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.imageio.ImageIO;
+import javax.inject.Inject;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 
 /**
  * @author huwenwen
@@ -23,6 +30,9 @@ public class AccountController {
    * log
    */
   private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
+
+  @Inject
+  private ImageCaptchaService imageCaptchaService;
 
   /**
    * 登录页面
@@ -48,6 +58,7 @@ public class AccountController {
       } else if (errorMsg.length == 1) {
         mav.addObject("loginError", errorMsg[0]);
       }
+      request.getSession().invalidate();
     }
     return mav;
   }
@@ -71,6 +82,43 @@ public class AccountController {
     //      // TODO: 16/8/19 跳转到登录页面
     //    }
     return mav;
+  }
+
+  @RequestMapping(value = "errorpage", method = RequestMethod.GET)
+  public ModelAndView toErrorPage(){
+    ModelAndView mav = new ModelAndView("account/errorpage");
+    return mav;
+  }
+
+  /**
+   * 生成图形验证码
+   *
+   * @param request
+   * @param response
+   */
+  @RequestMapping(value = "/captcha",  method = RequestMethod.GET)
+  public void getCode(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    try {
+      ByteArrayOutputStream jpegOutputStream = new ByteArrayOutputStream();
+      String captchaId = request.getSession().getId();
+
+      BufferedImage challenge =
+          (BufferedImage) imageCaptchaService.getChallengeForID(captchaId, request.getLocale());
+
+      ImageIO.write(challenge, "jpeg", jpegOutputStream);
+      byte[] captchaChallengeAsJpeg = jpegOutputStream.toByteArray();
+
+      response.setHeader("Cache-Control", "no-store");
+      response.setHeader("Pragma", "no-cache");
+      response.setDateHeader("Expires", 0);
+      response.setContentType("image/jpeg");
+      ServletOutputStream responseOutputStream = response.getOutputStream();
+      responseOutputStream.write(captchaChallengeAsJpeg);
+      responseOutputStream.flush();
+      responseOutputStream.close();
+    } catch (Exception e) {
+      logger.info(CommonUtil.getErrorMessage(e));
+    }
   }
 
 }

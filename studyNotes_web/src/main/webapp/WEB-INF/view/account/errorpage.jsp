@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-error
+<h1>Error!!!</h1>
 </body>
 </html>

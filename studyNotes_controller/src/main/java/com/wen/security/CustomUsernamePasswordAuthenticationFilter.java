@@ -1,5 +1,7 @@
 package com.wen.security;
 
+import com.octo.captcha.service.CaptchaServiceException;
+import com.octo.captcha.service.image.ImageCaptchaService;
 import com.wen.entity.MUsers;
 import com.wen.service.user.IUserService;
 import org.slf4j.Logger;
@@ -11,7 +13,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +37,9 @@ public class CustomUsernamePasswordAuthenticationFilter
   @Inject
   private IUserService userService;
 
+  @Inject
+  private ImageCaptchaService imageCaptchaService;
+
   private Boolean forwardToDestination;
 
   @Override
@@ -57,6 +61,19 @@ public class CustomUsernamePasswordAuthenticationFilter
     String userName = obtainUsername(request);
     String userPwd = obtainPassword(request);
     logger.info("用户{}请求登录...", userName);
+
+    // 验证码校验
+    String captchaId = request.getSession().getId();
+    String code = request.getParameter("code");
+    boolean isCorrect = false;
+    try {
+      isCorrect = imageCaptchaService.validateResponseForID(captchaId, code);
+    } catch (CaptchaServiceException e) {
+      loginFailHandle(request, userName, "请填写验证码！");
+    }
+    if (!isCorrect) {
+      loginFailHandle(request, userName, "验证码有误, 请重新填写");
+    }
 
     MUsers mu = userService.getMusersByUserName(userName);
     if (mu == null) {

@@ -31,8 +31,8 @@
         </property>
     </bean>
 
-    <import resource="rabbitmq-consumer.xml"/>
-    <import resource="rabbitmq-producer.xml"/>
+    <!--<import resource="rabbitmq-consumer.xml"/>-->
+    <!--<import resource="rabbitmq-producer.xml"/>-->
 
     <!-- 定义Hibernate Session工厂 -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -142,4 +142,16 @@
     <bean id="stringRedisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
         <property name="connectionFactory" ref="jedisConnectionFactory"/>
     </bean>
+
+    <!-- 图形验证码jcaptcha -->
+    <bean
+            class="com.octo.captcha.service.multitype.GenericManageableCaptchaService">
+        <constructor-arg index="0" ref="imageEngine"/>
+        <constructor-arg type="int" index="1" value="180"/><!--超时时间
+			秒 -->
+        <constructor-arg type="int" index="2" value="20000"/><!--最大并发数 -->
+        <constructor-arg type="int" index="3" value="20000"/>
+    </bean>
+    <bean id="imageEngine" class="com.wen.utils.ImageGenericCaptchaEngine"/>
+
 </beans>

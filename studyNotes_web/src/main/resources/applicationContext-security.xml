@@ -96,14 +96,16 @@
 
     <!-- 静态资源,无需拦截 -->
     <http pattern="/jslib/**" security="none"/>
-    <http pattern="/jsview/**" security="none"/>
-    <http pattern="/main/**" security="none"/>
+    <!--<http pattern="/jsview/**" security="none"/>-->
+    <!--<http pattern="/main/**" security="none"/>-->
     <http pattern="/stylelib/**" security="none"/>
-    <http pattern="/styleview/**" security="none"/>
-    <http pattern="/uf/**" security="none"/>
-    <http pattern="/image/**" security="none"/>
+    <!--<http pattern="/styleview/**" security="none"/>-->
+    <!--<http pattern="/uf/**" security="none"/>-->
+    <!--<http pattern="/image/**" security="none"/>-->
     <http pattern="/account/errorpage" security="none"/>
     <!--<http pattern="/account/login" security="none"/>-->
+    <!-- 验证码 -->
+    <http pattern="/account/captcha" security="none"/>
 
     <!-- 必须要有这句话 要不会报错 No bean named 'springSecurityFilterChain' -->
     <http use-expressions="false" entry-point-ref="authenticationEntryPoint">

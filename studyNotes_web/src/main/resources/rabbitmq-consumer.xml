@@ -9,6 +9,17 @@
 	http://www.springframework.org/schema/rabbit
     http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd">
 
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+                <value>classpath:redis.properties</value>
+                <value>classpath:rabbitmq.properties</value>
+            </list>
+        </property>
+    </bean>
+
     <!-- 连接服务配置  -->
     <rabbit:connection-factory id="connectionFactory" username="${rabbitmq.username}"
                                password="${rabbitmq.password}" host="${rabbitmq.host}"
