@@ -2,7 +2,7 @@
 1. redis
 2. slf4j日志
 3. 简单hibernate搭建
-4. spring-security 登录验证
+4. spring-security 登录验证, oauth2
 5. 加入 spring rabbitmq
 6. 加入 spring quartz
 

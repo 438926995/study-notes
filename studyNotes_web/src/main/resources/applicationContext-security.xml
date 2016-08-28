@@ -107,12 +107,17 @@
     <!-- 验证码 -->
     <http pattern="/account/captcha" security="none"/>
 
+    <!-- 加入spring-oauth2 -->
+    <beans:import resource="applicationContext-oauth2.xml"></beans:import>
+
     <!-- 必须要有这句话 要不会报错 No bean named 'springSecurityFilterChain' -->
     <http use-expressions="false" entry-point-ref="authenticationEntryPoint">
 
-        <intercept-url pattern="/com/wen" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 
         <access-denied-handler error-page="/account/errorpage"/>
+
+        <session-management session-fixation-protection="none"/>
 
         <custom-filter ref="loginFilter" position="FORM_LOGIN_FILTER"/>
         <custom-filter ref="securityFilter" before="FILTER_SECURITY_INTERCEPTOR"/>

@@ -206,6 +206,11 @@
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit</artifactId>
         </dependency>
+        <!-- spring oauth2 -->
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+        </dependency>
         <!-- 图形验证码 -->
         <dependency>
             <groupId>com.octo.captcha</groupId>
