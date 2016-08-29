@@ -47,14 +47,14 @@
     </beans:bean>
 
     <beans:bean id="customUserDetailServiceImpl"
-                class="com.wen.security.CustomUserDetailService"/>
+                class="com.wen.oauth2.security.CustomUserDetailService"/>
 
     <!-- 登录验证器 -->
     <beans:bean id="loginFilter"
-                class="com.wen.security.CustomUsernamePasswordAuthenticationFilter">
+                class="com.wen.oauth2.security.CustomUsernamePasswordAuthenticationFilter">
         <beans:property name="authenticationManager" ref="customAuthenticationManager"/>
         <beans:property name="authenticationSuccessHandler">
-            <beans:bean class="com.wen.security.CustomAuthenticationSuccessHandler">
+            <beans:bean class="com.wen.oauth2.security.CustomAuthenticationSuccessHandler">
                 <!-- 配置登录成功之后跳转到哪 -->
                 <beans:property name="defaultTargetUrl" value="/account/index"/>
                 <beans:property name="alwaysUseDefaultTargetUrl"
@@ -74,7 +74,7 @@
     </beans:bean>
 
     <!-- 认证过滤器 -->
-    <beans:bean id="securityFilter" class="com.wen.security.CustomSecurityFilter">
+    <beans:bean id="securityFilter" class="com.wen.oauth2.security.CustomSecurityFilter">
         <beans:property name="authenticationManager" ref="customAuthenticationManager"/>
         <beans:property name="accessDecisionManager" ref="customAccessDecisionManager"/>
         <beans:property name="securityMetadataSource" ref="customSecurityMetadataSource"/>
@@ -83,12 +83,12 @@
 
     <!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源 -->
     <beans:bean id="customAccessDecisionManager"
-                class="com.wen.security.CustomAccessDecisionManager">
+                class="com.wen.oauth2.security.CustomAccessDecisionManager">
     </beans:bean>
 
     <!-- 资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色访问 -->
     <beans:bean id="customSecurityMetadataSource"
-                class="com.wen.security.CustomSecurityMetadataSource">
+                class="com.wen.oauth2.security.CustomSecurityMetadataSource">
     </beans:bean>
 
     <beans:bean id="csrfTokenRepository"

@@ -1,6 +1,5 @@
 package com.wen.constants;
 
-import com.wen.utils.CommonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,14 +33,14 @@ public class ConfigurableConstants {
       }
     } catch (IOException e) {
       log.error("load " + propertyFileName + " into Constants error!");
-      log.error(CommonUtil.getErrorMessage(e));
+      log.error(e.getMessage());
     } finally {
       if (in != null) {
         try {
           in.close();
         } catch (IOException e) {
           log.error("close " + propertyFileName + " error!");
-          log.error(CommonUtil.getErrorMessage(e));
+          log.error(e.getMessage());
         }
       }
     }

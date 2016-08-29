@@ -44,7 +44,7 @@
           class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <!-- 这个就是具体实现类，如果是注解，则必须为component指定value -->
         <property name="targetObject">
-            <bean class="com.wen.task.TestTask"/>
+            <bean class="com.wen.oauth2.task.TestTask"/>
         </property>
         <!-- targetMethod是Spring定时器的特殊属性 -->
         <property name="targetMethod" value="excute" />
