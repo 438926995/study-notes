@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>studyNotes_service</artifactId>
+    <artifactId>studyNotes_client</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -31,35 +31,25 @@
         </plugins>
     </build>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.wen</groupId>
-            <artifactId>studyNotes_dao</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.wen</groupId>
-            <artifactId>studyNotes_client</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Repository Switchboard</name>
+            <layout>default</layout>
+            <url>http://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-        </dependency>
-        <!-- spring security -->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-        </dependency>
+    <dependencies>
+        <!--<dependency>-->
+            <!--<groupId>com.alibaba</groupId>-->
+            <!--<artifactId>dubbo</artifactId>-->
+            <!--<version>2.5.3</version>-->
+        <!--</dependency>-->
+
     </dependencies>
 
 

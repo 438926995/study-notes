@@ -9,6 +9,7 @@
 ##任务:
 1. 使用hibernate(over)
 2. 加入spring-security
+3. 学习dubbo 实现soa
 
 
 ##问题:

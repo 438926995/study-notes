@@ -15,6 +15,7 @@
         <module>studyNotes_web</module>
         <module>studyNotes_algorithm</module>
         <module>studyNotes_oauth2</module>
+        <module>studyNotes_client</module>
     </modules>
     <name>study-notes</name>
     <url>http://maven.apache.org</url>
@@ -40,6 +41,14 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.4</version>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -150,10 +159,10 @@
                 <scope>provided</scope>
             </dependency>
             <!--<dependency>-->
-                <!--<groupId>javax.servlet.jsp</groupId>-->
-                <!--<artifactId>jsp-api</artifactId>-->
-                <!--<version>2.1</version>-->
-                <!--<scope>provided</scope>-->
+            <!--<groupId>javax.servlet.jsp</groupId>-->
+            <!--<artifactId>jsp-api</artifactId>-->
+            <!--<version>2.1</version>-->
+            <!--<scope>provided</scope>-->
             <!--</dependency>-->
             <dependency>
                 <groupId>javax.servlet</groupId>
@@ -218,9 +227,9 @@
                 <version>3.1</version>
             </dependency>
             <!--<dependency>-->
-                <!--<groupId>org.apache.commons</groupId>-->
-                <!--<artifactId>commons-collections4</artifactId>-->
-                <!--<version>4.0</version>-->
+            <!--<groupId>org.apache.commons</groupId>-->
+            <!--<artifactId>commons-collections4</artifactId>-->
+            <!--<version>4.0</version>-->
             <!--</dependency>-->
             <dependency>
                 <groupId>commons-io</groupId>
@@ -368,15 +377,6 @@
                 <version>4.3.5</version>
             </dependency>
             <!-- apache httpcomponents end httpasyncclient -->
-
-            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-            <!--<dependency>-->
-                <!--<groupId>org.projectlombok</groupId>-->
-                <!--<artifactId>lombok</artifactId>-->
-                <!--<version>1.16.10</version>-->
-            <!--</dependency>-->
-
-
         </dependencies>
     </dependencyManagement>
 </project>

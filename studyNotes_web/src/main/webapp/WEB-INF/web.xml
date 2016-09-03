@@ -13,7 +13,10 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:applicationContext.xml,
-            classpath:applicationContext-security.xml
+            classpath:applicationContext-security.xml,
+            classpath:applicationContext-quartz.xml,
+            classpath:rabbitmq-producer.xml,
+            classpath:rabbitmq-consumer.xml
         </param-value>
     </context-param>
 
