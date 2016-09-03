@@ -5,6 +5,7 @@
 4. spring-security 登录验证, oauth2
 5. 加入 spring rabbitmq
 6. 加入 spring quartz
+7. lombok (使用需要下载lombok插件,要不会报错)
 
 ##任务:
 1. 使用hibernate(over)
