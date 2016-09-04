@@ -6,11 +6,17 @@
 5. 加入 spring rabbitmq
 6. 加入 spring quartz
 7. lombok (使用需要下载lombok插件,要不会报错)
+8. 简单dubbo搭建
 
 ##任务:
 1. 使用hibernate(over)
 2. 加入spring-security
-3. 学习dubbo 实现soa
+
+##dubbo
+* 使用dubbo需要下载 zookeeper mac 可用 brew install zookeeper 下载
+* 需要运行阿里[dubbo-admin](https://github.com/alibaba/dubbo)
+* 自己dubbo消费方实现[dubbo consumer](https://github.com/438926995/dubboConsumer)
+* 以上实现具体可参考[Dubbo分布式服务框架入门](http://www.kancloud.cn/digest/javaframe/125576)
 
 
 ##问题:
