@@ -3,3 +3,4 @@
 **/*.iml
 dump.rdb
 **/baidu.properties
+**/rebel.xml
