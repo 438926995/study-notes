@@ -23,7 +23,7 @@
 
     <!-- 定义一些属性变量 -->
     <properties>
-        <spring.version>4.1.7.RELEASE</spring.version>
+        <spring.version>4.3.4.RELEASE</spring.version>
         <springsecurity.version>4.0.2.RELEASE</springsecurity.version>
         <jackson.version>2.4.4</jackson.version>
         <hibernate.version>4.3.5.Final</hibernate.version>
@@ -126,6 +126,13 @@
                 <artifactId>spring-web</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-mongodb</artifactId>
+                <version>1.10.0.M1</version>
+            </dependency>
+
             <!-- spring end -->
 
             <!-- spring security -->
@@ -195,6 +202,19 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>5.1.38</version>
+            </dependency>
+
+            <!-- mongodb driver -->
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongo-java-driver</artifactId>
+                <version>3.3.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.mongodb/bson -->
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>bson</artifactId>
+                <version>3.3.0</version>
             </dependency>
 
             <dependency>
