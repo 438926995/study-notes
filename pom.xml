@@ -17,6 +17,7 @@
         <module>studyNotes_oauth2</module>
         <module>studyNotes_client</module>
         <module>studyNotes_mybatis</module>
+        <module>web-crawler</module>
     </modules>
     <name>study-notes</name>
     <url>http://maven.apache.org</url>
