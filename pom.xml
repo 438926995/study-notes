@@ -18,6 +18,7 @@
         <module>studyNotes_client</module>
         <module>studyNotes_mybatis</module>
         <module>web-crawler</module>
+      <module>studyNotes_workflow</module>
     </modules>
     <name>study-notes</name>
     <url>http://maven.apache.org</url>
@@ -49,6 +50,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.1.41</version>
         </dependency>
     </dependencies>
 
@@ -401,4 +407,20 @@
             <!-- apache httpcomponents end httpasyncclient -->
         </dependencies>
     </dependencyManagement>
+
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>2.5.1</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                <!-- 否则"编码 GBK 的不可映射字符" -->
+                <encoding>UTF-8</encoding>
+                <compilerArgument>-Xlint:all</compilerArgument>
+            </configuration>
+        </plugin>
+    </plugins>
+
 </project>
